@@ -1,11 +1,18 @@
 # Trivium
 
+Compile:
+
 ```
 $ make
 ```
 
 Encryption:
-./trivium_encrypt input_file cipher_file
 
+```
+./examples/trivium_encrypt input_file cipher_file
+```
 Decryption:
-./trivium_decrypt cipher_file output_file
+
+```
+./examples/trivium_decrypt cipher_file output_file
+```
