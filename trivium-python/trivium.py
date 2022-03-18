@@ -25,7 +25,7 @@ class Trivium:
         self.iv = iv
 
         # Initialize state
-        # len 100
+        # len 93
         init_list = list(map(int, list(self.key)))
         init_list += list(repeat(0, 13))
         # len 84
