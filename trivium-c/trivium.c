@@ -30,15 +30,15 @@ static uint8_t trivium_rotate(uint8_t *arr, uint8_t arr_size)
 {
     uint8_t i;
 
-    uint8_t a1 = trivium_nbit(arr, 91) & trivium_nbit(arr, 92);
-    uint8_t a2 = trivium_nbit(arr, 175) & trivium_nbit(arr, 176);
-    uint8_t a3 = trivium_nbit(arr, 286) & trivium_nbit(arr, 287);
-
     uint8_t t1 = trivium_nbit(arr, 66) ^ trivium_nbit(arr, 93);
     uint8_t t2 = trivium_nbit(arr, 162) ^ trivium_nbit(arr, 177);
     uint8_t t3 = trivium_nbit(arr, 243) ^ trivium_nbit(arr, 288);
 
     uint8_t out = t1 ^ t2 ^ t3;
+
+    uint8_t a1 = trivium_nbit(arr, 91) & trivium_nbit(arr, 92);
+    uint8_t a2 = trivium_nbit(arr, 175) & trivium_nbit(arr, 176);
+    uint8_t a3 = trivium_nbit(arr, 286) & trivium_nbit(arr, 287);
 
     uint8_t s1 = a1 ^ trivium_nbit(arr, 171) ^ t1;
     uint8_t s2 = a2 ^ trivium_nbit(arr, 264) ^ t2;
