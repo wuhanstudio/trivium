@@ -10,9 +10,9 @@ module trivium_tb;
 
     initial begin
         $dumpfile("test.vcd");
-	$dumpvars(0, s);
-	$dumpvars(0, clk);
-	$dumpvars(0, rst);
+        $dumpvars(0, s);
+        $dumpvars(0, clk);
+        $dumpvars(0, rst);
         key = 80'b0;
         iv = 80'b0;
         rst = 1;
