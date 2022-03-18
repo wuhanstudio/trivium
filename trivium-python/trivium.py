@@ -21,13 +21,13 @@ class Trivium:
         Afterwards we initialize the state."""
         self.state = None
         self.counter = 0
-        self.key = key  # self._setLength(key)
-        self.iv = iv  # self._setLength(iv)
+        self.key = key 
+        self.iv = iv
 
         # Initialize state
         # len 100
         init_list = list(map(int, list(self.key)))
-        init_list += list(repeat(0, 20))
+        init_list += list(repeat(0, 13))
         # len 84
         init_list += list(map(int, list(self.iv)))
         init_list += list(repeat(0, 4))
@@ -93,36 +93,27 @@ class Trivium:
             self.counter += 1
             yield self._gen_keystream()
 
-    def _setLength(self, input_data):
-        """we cut off after 80 bits, alternatively we pad these with zeros."""
-        input_data = "{0:080b}".format(input_data)
-        if len(input_data) > 80:
-            input_data = input_data[:(len(input_data)-81):-1]
-        else:
-            input_data = input_data[::-1]
-        return input_data
-
     def _gen_keystream(self):
         """this method generates triviums keystream"""
 
-        a_1 = self.state[90] & self.state[91]
-        a_2 = self.state[181] & self.state[182]
-        a_3 = self.state[292] & self.state[293]
-
         t_1 = self.state[65] ^ self.state[92]
-        t_2 = self.state[168] ^ self.state[183]
-        t_3 = self.state[249] ^ self.state[294]
+        t_2 = self.state[161] ^ self.state[176]
+        t_3 = self.state[242] ^ self.state[287]
 
         out = t_1 ^ t_2 ^ t_3
 
-        s_1 = a_1 ^ self.state[177] ^ t_1
-        s_2 = a_2 ^ self.state[270] ^ t_2
+        a_1 = self.state[90] & self.state[91]
+        a_2 = self.state[174] & self.state[175]
+        a_3 = self.state[285] & self.state[286]
+
+        s_1 = a_1 ^ self.state[170] ^ t_1
+        s_2 = a_2 ^ self.state[263] ^ t_2
         s_3 = a_3 ^ self.state[68] ^ t_3
 
         self.state.rotate(1)
 
         self.state[0] = s_3
-        self.state[100] = s_1
-        self.state[184] = s_2
+        self.state[93] = s_1
+        self.state[177] = s_2
 
         return out
