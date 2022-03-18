@@ -1,14 +1,13 @@
 module trivium(output s, input [80:1] IV, KEY, input rst, clk);
 
     // declare main shift registers
-    reg [93:1] srs93;
-    reg [84:1] srs84;
+    reg [93:1]  srs93;
+    reg [84:1]  srs84;
     reg [111:1] srs111;
 
-    wire t1, t2, t3;
     integer i;
+    wire t1, t2, t3;
 
-    // random output
     assign t1 = srs93[66] ^ srs93[93];
     assign t2 = srs84[69] ^ srs84[84];
     assign t3 = srs111[66] ^ srs111[111];
