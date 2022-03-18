@@ -10,7 +10,7 @@ module trivium(output reg s, input wire [80:1] IV, KEY, input wire rst, clk);
     reg t1, t2, t3;
     reg a1, a2, a3;
 
-    always @(posedge rst or posedge clk) begin
+    always @(posedge clk) begin
         if (rst) begin
             $display("Initialization.");
             srs93   = {13'b0, KEY};

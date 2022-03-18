@@ -16,8 +16,8 @@ module trivium_tb;
         key = 80'b0;
         iv = 80'b0;
         rst = 1;
-        clk = 0;
-        #1 rst = 0;
+        clk = 1;
+        #1 rst = 0; clk = 0;
     end
 
     always begin
