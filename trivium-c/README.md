@@ -1,4 +1,4 @@
-# Trivium
+# Trivium (Big Endian)
 
 Compile:
 
