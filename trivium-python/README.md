@@ -1,4 +1,4 @@
-# Trivium
+# Trivium (Little Endian)
 
 ```python
 $ python3 main.py
